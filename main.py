@@ -62,7 +62,7 @@ with serial.Serial(port) as ser:
             break
 
         # Decode bytes into a list of strings
-        data = data.decode("ASCII").strip(",").split(",")
+        data = data.decode("ASCII").replace('ERROR', '-1').strip(",").split(",")
 
         if data[0] == "I":
             if data[1] == "Product ID":  # For the INFO command response
